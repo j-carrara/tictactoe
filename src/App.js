@@ -53,7 +53,7 @@ class App extends React.Component {
 
   move(i) {
     if(!this.state.win){
-      axios.post('http://justagiraffe.us:3001/state?space='+i)
+      axios.post('http://justagiraffe.us:3001/move?space='+i)
     }
   }
 

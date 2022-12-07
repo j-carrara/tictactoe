@@ -55,7 +55,7 @@ app.ws("/", (ws, req) => {
     ws.send(JSON.stringify({boardState: boardState, turn: turn, win: win, winning_tiles: winning_tiles}));
   });
 
-app.post("/state", (req, res) => {
+app.post("/move", (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     if(win){
