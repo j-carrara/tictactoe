@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 const expressWs = require("express-ws")(app);
+const path = require("path")
 
 let boardState = ['','','','','','','','','']
 let turn = 'x'
@@ -48,6 +49,7 @@ function checkWin() {
     }
 }
 
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.ws("/", (ws, req) => {
     ws.send(JSON.stringify({boardState: boardState, turn: turn, win: win, winning_tiles: winning_tiles}));
